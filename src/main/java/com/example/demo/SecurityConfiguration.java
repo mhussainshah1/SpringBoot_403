@@ -40,12 +40,12 @@ public class SecurityConfiguration  {
     public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
         UserDetails admin= User
                 .withUsername("dave")
-                .password(passwordEncoder.encode("begreat"))
+                .password(passwordEncoder().encode("begreat"))
                 .roles("ADMIN")
                 .build();
         UserDetails user = User
                 .withUsername("user")
-                .password(passwordEncoder.encode("password"))
+                .password(passwordEncoder().encode("password"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(admin,user);
